@@ -7,7 +7,7 @@ import time
 def pytest_addoption(parser):
     parser.addoption('--browser_name', action='store', default="chrome",
                      help="Choose browser: chrome or firefox")
-    parser.addoption('--language', action='store', default="ru",
+    parser.addoption('--language', action='store', default="en-gb",
                      help="Choose language")
 
 @pytest.fixture(scope="function")
@@ -29,5 +29,5 @@ def browser(request):
         raise pytest.UsageError("--browser_name should be chrome or firefox")
     yield browser
     print("\nquit browser..")
-    time.sleep(30)
+    time.sleep(5)
     browser.quit()
