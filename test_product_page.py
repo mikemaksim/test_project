@@ -21,3 +21,40 @@ def test_guest_can_add_product_to_basket(browser, link):
     page.solve_quiz_and_get_code()
     
     page.check_alert()
+    
+@pytest.mark.xfail
+def test_guest_cant_see_success_message_after_adding_product_to_basket(browser): 
+    # Открываем страницу товара 
+    link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/coders-at-work_207/"
+    page = ProductPage(browser, link)
+    page.open()
+    
+    # Добавляем товар в корзину 
+    page.add_to_basket()
+    page.solve_quiz_and_get_code()
+    
+    # Проверяем, что нет сообщения об успехе с помощью is_not_element_present
+    page.should_not_be_success_message()
+    
+def test_guest_cant_see_success_message(browser): 
+    # Открываем страницу товара 
+    link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/coders-at-work_207/"
+    page = ProductPage(browser, link)
+    page.open()
+    
+    # Проверяем, что нет сообщения об успехе с помощью is_not_element_present
+    page.should_not_be_success_message()
+
+@pytest.mark.xfail    
+def test_message_disappeared_after_adding_product_to_basket(browser): 
+    # Открываем страницу товара
+    link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/coders-at-work_207/"
+    page = ProductPage(browser, link)
+    page.open()
+    
+    # Добавляем товар в корзину
+    page.add_to_basket()
+    page.solve_quiz_and_get_code()
+    
+    # Проверяем, что нет сообщения об успехе с помощью is_disappeared
+    page.success_message_disappeared()

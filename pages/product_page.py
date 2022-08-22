@@ -33,7 +33,12 @@ class ProductPage(BasePage):
     def book_price_coincide(self):
         assert self.get_book_price() == self.get_in_basket_book_price(), f'Book prices differ'
 
-    
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is presented, but should not be"
+        
+    def success_message_disappeared(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), "Success message did not disappear"
+       
     def get_book_title(self):
         book_title = self.browser.find_element(*ProductPageLocators.BOOK_TITLE).text
         return book_title

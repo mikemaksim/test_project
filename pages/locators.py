@@ -13,4 +13,6 @@ class ProductPageLocators():
     BOOK_PRICE = (By.CSS_SELECTOR, ".product_main .price_color") 
     # ADD_TO_BASKET_BOOK_TITLE = (By.CSS_SELECTOR, ".btn-add-to-basket")
     IN_BASKET_BOOK_TITLE = (By.CSS_SELECTOR, ".alert:nth-child(1) strong")
-    IN_BASKET_BOOK_PRICE =  (By.CSS_SELECTOR, ".alert:nth-child(3) strong")
+    IN_BASKET_BOOK_PRICE = (By.CSS_SELECTOR, ".alert:nth-child(3) strong")
+    
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, ".alert-success")
