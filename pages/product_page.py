@@ -47,10 +47,6 @@ class ProductPage(BasePage):
         book_price = self.browser.find_element(*ProductPageLocators.BOOK_PRICE).text
         return book_price    
         
-    # def get_add_to_basket_book_title(self):
-    #    add_to_basket_book_title = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET_BOOK_TITLE).text
-    #    return add_to_basket_book_title    
-
     def get_in_basket_book_title(self):
         in_basket_book_title = self.browser.find_element(*ProductPageLocators.IN_BASKET_BOOK_TITLE).text
         return in_basket_book_title    
